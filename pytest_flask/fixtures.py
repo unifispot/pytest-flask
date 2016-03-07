@@ -56,7 +56,7 @@ class LiveServer(object):
 
     def start(self):
         """Start application in a separate process."""
-        worker = lambda app, port: app.run(port=port, use_reloader=False)
+        worker = lambda app, port: app.run(port=port, use_reloader=False,host='0.0.0.0')
         self._process = multiprocessing.Process(
             target=worker,
             args=(self.app, self.port)
